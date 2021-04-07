@@ -313,12 +313,6 @@ size_t typedef__fprintf(const struct tag *tag, const struct cu *cu,
 	case DW_TAG_class_type:
 	case DW_TAG_structure_type: {
 		struct type *ctype = tag__type(tag_type);
-
-		if (type__name(ctype, cu) != NULL)
-			return fprintf(fp, "typedef struct %s %s",
-				       type__name(ctype, cu),
-				       type__name(type, cu));
-
 		struct conf_fprintf tconf = *pconf;
 
 		tconf.suffix = type__name(type, cu);
